@@ -46,3 +46,11 @@ def mem_stats():
 			elif line.startswith('SwapFree: '):
 				swap_free = (int(line.split()[1]) * 1024)
     return (mem_active, mem_total, mem_cached, mem_free, swap_total, swap_free)
+
+def mem_info():
+	mem = dict()
+	with open('/proc/meminfo') as f:
+		for line in f:
+			chop = line.split()
+			mem[chop[0]] = int(chop[1])
+	return
