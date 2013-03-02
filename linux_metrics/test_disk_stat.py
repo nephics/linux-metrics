@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2010-2012 Corey Goldberg (http://goldb.org)
+#  Copyright (c) 2010-2013 Corey Goldberg (http://goldb.org)
 #
 #  This file is part of linux-metrics
 #
@@ -19,14 +19,13 @@
 #
 
 
-import disk_stat
-import unittest
+from . import disk_stat
 
+import unittest
 
 
 # configuration
 DISK_DEVICE = 'sda1'
-
 
 
 class TestDiskStats(unittest.TestCase):

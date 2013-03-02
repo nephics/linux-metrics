@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2010-2012 Corey Goldberg (http://goldb.org)
+#  Copyright (c) 2010-2013 Corey Goldberg (http://goldb.org)
 #
 #  This file is part of linux-metrics
 #
@@ -57,10 +57,7 @@ def disk_busy(device, sample_duration=1):
             break            
     delta = int(io_ms2) - int(io_ms1)
     total = sample_duration * 1000
-    busy_pct = 100 - (100 * (float(total - delta) / total))
-    return busy_pct
-
-
+    return 100 * (float(delta) / total)
 
 def disk_reads_writes(device):
     """Return number of disk (reads, writes)."""
@@ -79,18 +76,15 @@ def disk_reads_writes(device):
         raise DiskError('device not found: %r' % device)
     return (num_reads, num_writes)
 
+
 def disk_usage(path):
-    """Return disk usage statistics about the given path.
-	Found at: http://stackoverflow.com/a/7285509/940204
-    Returned valus is a named tuple with attributes 'total', 'used' and
-    'free', which are the amount of total, used and free space, in bytes.
-    """    
-	
+    """Return disk usage statistics about the given path."""    	
     output = Popen(['df', '-k', path], stdout=PIPE).communicate()[0]
     df = output.splitlines()[1].split()
     (device, size, used, free, percent, mountpoint) = df
     return (device, int(size), int(used), int(free), percent, mountpoint)
-    
+
+
 def disk_reads_writes_persec(device, sample_duration=1):
     """Return number of disk (reads, writes) per sec during the sample_duration."""
     with open('/proc/diskstats') as f1:
@@ -123,5 +117,3 @@ def disk_reads_writes_persec(device, sample_duration=1):
 
 class DiskError(Exception):
     pass
-
-

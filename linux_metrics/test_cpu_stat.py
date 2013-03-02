@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2010-2012 Corey Goldberg (http://goldb.org)
+#  Copyright (c) 2010-2013 Corey Goldberg (http://goldb.org)
 #
 #  This file is part of linux-metrics
 #
@@ -19,9 +19,9 @@
 #
 
 
-import cpu_stat
 import unittest
 
+from . import cpu_stat
 
 
 class TestCPUStats(unittest.TestCase):

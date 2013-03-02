@@ -1,11 +1,10 @@
-
 =============
 linux-metrics
 =============
 
 *System Metrics/Stats Library for Linux*
 
-* 2010-2012 `Corey Goldberg <http://goldb.org>`_
+* 2010-2013 `Corey Goldberg <http://goldb.org>`_
 * Dev Home: https://github.com/cgoldberg/linux-metrics
 * PyPI: http://pypi.python.org/pypi/linux-metrics
 * Free Open Source : `MIT License <http://www.opensource.org/licenses/MIT>`_
@@ -30,7 +29,7 @@ Install from PyPI
 Requirements
 ------------
 
-* Python 2.6+
+* Python 2.6/2.7/3.1/3.2/3.3/PyPy
 * Linux 2.6+
 
 -------------
@@ -98,7 +97,9 @@ Unit Tests
 
 You can run the included unit tests and verify all cases pass in your environment:
 
-* `runtests.py <https://github.com/cgoldberg/linux-metrics/blob/master/runtests.py>`_
+::
+
+    $ nosetests
 
 Note:  you may need to adjust the configuration of the unit tests to match your environment.  They are set by default to use:
 
