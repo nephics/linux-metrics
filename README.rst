@@ -78,6 +78,7 @@ API
       * disk_reads_writes_persec(device, sample_duration=1)
     * mem_stat
       * mem_stats()
+      * mem_info()
     * net_stat
       * rx_tx_bytes(interface)
       * rx_tx_bits(interface)
