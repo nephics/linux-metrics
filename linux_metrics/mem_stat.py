@@ -53,4 +53,4 @@ def mem_info():
 		for line in f:
 			chop = line.split()
 			mem[chop[0]] = int(chop[1])
-	return
+	return mem
